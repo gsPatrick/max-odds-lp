@@ -1,10 +1,11 @@
 /* src/app/globals.css */
 :root {
-  --primary-green: #b7ee23;
-  --dark-bg: #1e201f;
-  --dark-secondary: #292829;
+  --primary-green: #01832e;
+  --accent-yellow: #FFC700; /* ✨ COR DE DESTAQUE ADICIONADA ✨ */
+  --dark-bg: #01101c;
+  --dark-secondary: #0a1929;
   --text-light: #f5f5f5;
-  --text-dark: #1e201f;
+  --text-dark: #01101c; /* Para texto em fundos claros/amarelos */
 }
 
 * {
@@ -39,4 +40,3 @@ section {
     width: 100%;
     margin: 0 auto;
 }
-

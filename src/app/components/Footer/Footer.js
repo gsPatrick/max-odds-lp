@@ -14,7 +14,7 @@ const Footer = () => {
         {/* 2. O logo em texto foi substituído por este Link com a Imagem */}
         <Link href="/">
           <Image
-            src="/images/logo.png" // Caminho a partir da pasta 'public'
+            src="/images/logomaxs.png" // Caminho a partir da pasta 'public'
             alt="Super Odds Logo"
             width={200}  // Maior que a do header (150px)
             height={200}   // Mantém a proporção (aprox.)
@@ -30,7 +30,7 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.bottomBar}>
-          <p>© {currentYear} Boleiro Tips. Todos os direitos reservados.</p>
+          <p>© {currentYear} Max odds. Todos os direitos reservados.</p>
           <Link href="/politica-de-privacidade" className={styles.privacyLink}>
             Política de Privacidade
           </Link>

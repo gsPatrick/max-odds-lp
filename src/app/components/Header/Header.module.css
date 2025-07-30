@@ -18,7 +18,7 @@
 
 /* Camada 1: Barra de Escassez Fixa */
 .urgencyBanner {
-  background-color: var(--primary-green);
+  background-color: var(--accent-yellow);
   color: var(--text-dark);
   padding: 6px 0;
   text-align: center;

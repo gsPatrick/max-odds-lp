@@ -1,4 +1,4 @@
-// src/app/components/Beneficios/Beneficios.js (COMPLETO COM A CORREÇÃO FINAL)
+// src/app/components/Beneficios/Beneficios.js (ATUALIZADO COM NOVA MARCA)
 'use client';
 
 import { useRef, useLayoutEffect } from 'react';
@@ -15,7 +15,6 @@ const Beneficios = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Animação para o título (pode continuar como .from())
       gsap.from(titleRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -28,17 +27,15 @@ const Beneficios = () => {
         ease: 'power3.out',
       });
 
-      // ✨✨✨ LÓGICA DE ANIMAÇÃO REVISADA: DE .from() PARA .to() ✨✨✨
-      // Os cards começam invisíveis via CSS e animamos PARA o estado visível.
       gsap.to(gridRef.current.children, {
         scrollTrigger: {
           trigger: gridRef.current,
           start: 'top 85%',
           toggleActions: 'play none none none',
         },
-        opacity: 1, // Torna-se visível
-        y: 0,      // Volta para a posição original (Y)
-        scale: 1,  // Volta para a escala original
+        opacity: 1,
+        y: 0,
+        scale: 1,
         stagger: 0.15,
         duration: 0.8,
         ease: 'power3.out',
@@ -49,7 +46,8 @@ const Beneficios = () => {
   }, []);
 
   const beneficios = [
-    { icon: '📈', title: 'Odds Validadas', description: 'Super Odds atualizadas e analisadas por nossa equipe de especialistas.' },
+    // ✨ TEXTO ATUALIZADO PARA "MAX ODDS" ✨
+    { icon: '📈', title: 'Odds Validadas', description: 'Max Odds atualizadas e analisadas por nossa equipe de especialistas.' },
     { icon: '🎯', title: 'Análise de Ponta', description: 'Nossos analistas se dedicam a encontrar as melhores oportunidades do mercado.' },
     { icon: '📱', title: 'Acompanhamento', description: 'Receba as entradas com antecedência e acompanhe os jogos conosco.' },
     { icon: '🛡️', title: 'Casas Seguras', description: 'Operamos apenas com as casas de apostas mais confiáveis e regulamentadas.' },

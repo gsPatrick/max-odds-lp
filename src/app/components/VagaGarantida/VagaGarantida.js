@@ -1,4 +1,4 @@
-// src/app/components/VagaGarantida/VagaGarantida.js (VERSÃO CINEMATOGRÁFICA E CONVIDATIVA)
+// src/app/components/VagaGarantida/VagaGarantida.js (Nenhuma mudança de texto necessária)
 'use client';
 
 import { useState, useRef, useLayoutEffect } from 'react';
@@ -18,7 +18,6 @@ const VagaGarantida = () => {
 
   useLayoutEffect(() => {
     if (status === 'loading') {
-      // ✨ NOVA COPY - Focada em oportunidade, não em restrição ✨
       const loadingTexts = ["CONECTANDO AO SERVIDOR...", "BUSCANDO OPORTUNIDADES...", "PREPARANDO SEU ACESSO..."];
       let textIndex = 0;
 
@@ -41,7 +40,7 @@ const VagaGarantida = () => {
         }, [], 0)
         .to(lockRef.current, { 
             scale: 1.2, 
-            boxShadow: "0 0 100px rgba(183, 238, 35, 1)", 
+            boxShadow: "0 0 100px rgba(1, 131, 46, 1)", // Brilho verde
             duration: 0.2, 
             delay: 2.3 
         })
@@ -72,9 +71,8 @@ const VagaGarantida = () => {
       <div className={`${styles.container} container`}>
         {status !== 'success' && (
             <div className={styles.initialState} style={{ display: status === 'idle' ? 'flex' : 'none' }}>
-                {/* ✨ NOVA COPY - Mais convidativa e misteriosa ✨ */}
                 <h2 className={styles.title}>Uma Oportunidade Está à Sua Espera</h2>
-                <p className={styles.subtitle}>As melhores Super Odds não são para todos, são para quem as procura. Toque no botão para desbloquear seu acesso.</p>
+                <p className={styles.subtitle}>As melhores Max Odds não são para todos, são para quem as procura. Toque no botão para desbloquear seu acesso.</p>
                 <button onClick={handleUnlock} className={styles.unlockButton}>
                 DESBLOQUEAR OPORTUNIDADE
                 </button>
@@ -100,7 +98,6 @@ const VagaGarantida = () => {
              <div className={styles.successIcon}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
              </div>
-             {/* ✨ NOVA COPY - Foco em sucesso e urgência positiva ✨ */}
              <h2 className={styles.title}>CONEXÃO ESTABELECIDA!</h2>
              <p className={styles.subtitle}>Parabéns! Você desbloqueou com sucesso seu acesso ao grupo. <span className={styles.highlight}>Sua vaga está reservada,</span> mas você precisa entrar agora para não perdê-la.</p>
              <a

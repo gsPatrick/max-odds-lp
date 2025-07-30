@@ -1,4 +1,4 @@
-// src/app/components/ChamadaFinal/ChamadaFinal.js (VERSÃO FINAL COM CONTEXTO)
+// src/app/components/ChamadaFinal/ChamadaFinal.js (Nenhuma mudança de texto necessária)
 'use client';
 
 import { useRef, useLayoutEffect } from 'react';
@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ChamadaFinal = () => {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const numberRef = useRef(null); // Ref apenas para o número
+  const numberRef = useRef(null);
   const titleRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -41,7 +41,6 @@ const ChamadaFinal = () => {
         '-=0.7'
       );
 
-      // Animação de contagem regressiva com contexto
       const counter = { value: 99 };
       gsap.to(counter, {
         scrollTrigger: {
@@ -64,7 +63,6 @@ const ChamadaFinal = () => {
 
   return (
     <section className={styles.section} ref={sectionRef}>
-      {/* Contador agora tem número e texto */}
       <div className={styles.bgCounterContainer}>
         <div className={styles.bgNumber} ref={numberRef}>
           99

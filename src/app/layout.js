@@ -17,8 +17,8 @@ const poppins = Poppins({
 
 
 export const metadata = {
-  title: 'Grupo de Super Odds - As Melhores Odds do Brasil',
-  description: 'Entre gratuitamente no grupo exclusivo e receba as Super Odds mais procuradas e analisadas por especialistas.',
+  title: 'Max Odds - As Melhores Odds do Brasil',
+  description: 'Entre gratuitamente no grupo exclusivo e receba as Max Odds mais procuradas e analisadas por especialistas.',
 };
 
 export default function RootLayout({ children }) {

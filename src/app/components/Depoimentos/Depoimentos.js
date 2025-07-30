@@ -1,4 +1,4 @@
-// src/app/components/Depoimentos/Depoimentos.js (ATUALIZADO)
+// src/app/components/Depoimentos/Depoimentos.js (ATUALIZADO COM NOVA MARCA)
 'use client';
 
 import { useRef, useLayoutEffect } from 'react';
@@ -13,9 +13,8 @@ const Depoimentos = () => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const gridRef = useRef(null);
-  const ctaRef = useRef(null); // Ref para a chamada final
+  const ctaRef = useRef(null);
 
-  // Adicione o caminho da imagem para cada depoimento
   const depoimentos = [
     {
       nome: 'João P.',
@@ -38,13 +37,14 @@ const Depoimentos = () => {
      {
       nome: 'Lucas F.',
       cidade: 'Curitiba, PR',
-      texto: '“A taxa de acerto das análises é impressionante. É nítido que existe um estudo muito aprofundado por trás de cada Super Odd enviada. Recomendo 100%.”',
+      texto: '“A taxa de acerto das análises é impressionante. É nítido que existe um estudo muito aprofundado por trás de cada Max Odd enviada. Recomendo 100%.”',
       imagem: '/lucas.jpg',
     },
      {
       nome: 'Fernanda L.',
       cidade: 'Salvador, BA',
-      texto: '“Entrei com um pé atrás, por ser gratuito, mas a qualidade do conteúdo é de grupo VIP pago. Superou todas as minhas expectativas. O nome Super Odds faz jus!”',
+      // ✨ TEXTO ATUALIZADO PARA "MAX ODDS" ✨
+      texto: '“Entrei com um pé atrás, por ser gratuito, mas a qualidade do conteúdo é de grupo VIP pago. Superou todas as minhas expectativas. O nome Max Odds faz jus!”',
       imagem: '/fernanda.jpg',
     },
      {
@@ -57,11 +57,9 @@ const Depoimentos = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Animação para o título e grid (continua a mesma)
       gsap.from(titleRef.current, { scrollTrigger: { trigger: titleRef.current, start: 'top 85%', toggleActions: 'play none none none' }, opacity: 0, y: 50, duration: 0.8, ease: 'power3.out' });
       gsap.from(gridRef.current.children, { scrollTrigger: { trigger: gridRef.current, start: 'top 85%', toggleActions: 'play none none none' }, opacity: 0, y: 50, stagger: 0.15, duration: 0.8, ease: 'power3.out' });
       
-      // Animação para a chamada final (subtítulo + botão)
       gsap.from(ctaRef.current.children, {
         scrollTrigger: {
           trigger: ctaRef.current,
@@ -106,13 +104,12 @@ const Depoimentos = () => {
           ))}
         </div>
 
-        {/* --- NOVA CHAMADA PARA AÇÃO --- */}
         <div className={styles.finalCtaContainer} ref={ctaRef}>
             <h3 className={styles.ctaSubtitle}>
                 Viu como funciona? Chegou a sua vez de ter acesso às mesmas oportunidades.
             </h3>
             <a
-              href="https://t.me/melhoressuperodds" // Link do grupo
+              href="https://t.me/melhoressuperodds"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.ctaButton}

@@ -1,4 +1,4 @@
-/* src/app/components/Beneficios/Beneficios.module.css (COMPLETO COM A CORREÇÃO FINAL) */
+/* src/app/components/Beneficios/Beneficios.module.css (ATUALIZADO COM NOVA PALETA) */
 
 .beneficiosSection {
   background-color: var(--dark-bg);
@@ -14,7 +14,8 @@
   left: -10%;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, var(--primary-green) 0%, rgba(183, 238, 35, 0) 70%);
+  /* Brilho de fundo mantido com o verde principal */
+  background: radial-gradient(circle, var(--primary-green) 0%, rgba(1, 131, 46, 0) 70%);
   opacity: 0.1;
   filter: blur(50px);
 }
@@ -38,8 +39,9 @@
 }
 
 .beneficiosHighlight {
+  /* Destaque no título com o verde principal */
   color: var(--primary-green);
-  text-shadow: 0 0 10px rgba(183, 238, 35, 0.5);
+  text-shadow: 0 0 10px rgba(1, 131, 46, 0.5);
 }
 
 .beneficiosGrid {
@@ -58,13 +60,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  
-  /* ✨✨✨ MUDANÇA CRUCIAL AQUI: OS CARDS COMEÇAM INVISÍVEIS ✨✨✨ */
   opacity: 0;
-  
-  /* Inicializa a transformação que a GSAP vai reverter */
   transform: translateY(50px) scale(0.9);
-  
   gap: 1rem;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -77,6 +74,7 @@
 }
 
 .cardTitle {
+  /* Título do card com o verde principal */
   color: var(--primary-green);
   font-size: 1.4rem;
   font-weight: 700;
@@ -97,7 +95,8 @@
   transform: translate(-50%, -50%);
   width: 150%;
   height: 150%;
-  background: conic-gradient(from 0deg, transparent 0deg 270deg, var(--primary-green) 270deg 360deg);
+  /* ✨✨✨ BORDA ANIMADA COM GRADIENTE VERDE-AMARELO ✨✨✨ */
+  background: conic-gradient(from 0deg, transparent 0deg 270deg, var(--primary-green) 270deg, var(--accent-yellow) 360deg);
   animation: rotateBorder 4s linear infinite;
   z-index: 1;
 }
@@ -125,7 +124,8 @@
 }
 
 .beneficiosCtaButton {
-  background-color: var(--primary-green);
+  /* ✨ BOTÃO PRINCIPAL COM A COR AMARELA ✨ */
+  background-color: var(--accent-yellow);
   color: var(--text-dark);
   padding: 18px 35px;
   border-radius: 10px;
@@ -140,7 +140,8 @@
 
 .beneficiosCtaButton:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px var(--primary-green);
+  /* Sombra do botão ajustada para a cor amarela */
+  box-shadow: 0 0 20px var(--accent-yellow);
 }
 
 @media (max-width: 992px) {
