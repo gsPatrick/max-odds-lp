@@ -109,7 +109,7 @@ const Depoimentos = () => {
                 Viu como funciona? Chegou a sua vez de ter acesso às mesmas oportunidades.
             </h3>
             <a
-              href="https://t.me/melhoressuperodds"
+              href="https://t.me/maxoddsBR"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.ctaButton}

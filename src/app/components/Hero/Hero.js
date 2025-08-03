@@ -68,7 +68,7 @@ const Hero = () => {
         </p>
 
         <a
-          href="https://t.me/melhoressuperodds"
+          href="https://t.me/maxoddsBR"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.ctaButton}

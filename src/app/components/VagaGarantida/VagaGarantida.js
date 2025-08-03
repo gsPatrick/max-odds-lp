@@ -101,7 +101,7 @@ const VagaGarantida = () => {
              <h2 className={styles.title}>CONEXÃO ESTABELECIDA!</h2>
              <p className={styles.subtitle}>Parabéns! Você desbloqueou com sucesso seu acesso ao grupo. <span className={styles.highlight}>Sua vaga está reservada,</span> mas você precisa entrar agora para não perdê-la.</p>
              <a
-                href="https://t.me/melhoressuperodds"
+                href="https://t.me/maxoddsBR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.finalCtaButton}

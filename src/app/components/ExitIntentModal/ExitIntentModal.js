@@ -52,7 +52,7 @@ const ExitIntentModal = () => {
                 <h2 className={styles.title}>ESPERE! VOCÊ TEM CERTEZA?</h2>
                 <p className={styles.subtitle}>As Super Odds de hoje já estão no grupo. Você está a um clique de perder a oportunidade que pode mudar seu dia.</p>
                 <a 
-                    href="https://t.me/melhoressuperodds"
+                    href="https://t.me/maxoddsBR"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.ctaButton}
