@@ -1,0 +1,150 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.modal {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  padding: 40px 30px; /* Mais padding vertical */
+  border-radius: 12px;
+  max-width: 420px; /* Um pouco mais estreito */
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza itens */
+  gap: 25px; /* Espaçamento entre logo, texto e botões */
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+/* Estilo para o logo (MANTIDO INALTERADO conforme sua solicitação) */
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px; /* Espaço abaixo do logo */
+}
+
+/* Estilo para a pergunta principal */
+.question {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+/* Container para os botões */
+.buttonContainer {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Estilo base para ambos os botões */
+.primaryButton,
+.secondaryButton {
+  flex: 1; /* Faz os botões dividirem o espaço igualmente */
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+/* Estilo do botão primário (SIM) */
+.primaryButton {
+  background-color: var(--color-accent-primary);
+  color: var(--color-background-primary);
+  border-color: var(--color-accent-primary);
+}
+
+.primaryButton:hover {
+  background-color: #9cd41e; /* Cor hover */
+  border-color: #9cd41e;
+  transform: translateY(-2px);
+}
+
+/* Estilo do botão secundário (NÃO) */
+.secondaryButton {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.secondaryButton:hover {
+  background-color: var(--color-border);
+  border-color: var(--color-border);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- ESTILOS PARA O TEMA CLARO DENTRO DO MODAL --- */
+body.light-theme .modal {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .question {
+    color: var(--color-text-primary);
+}
+
+body.light-theme .primaryButton {
+  background-color: var(--color-accent-primary);
+  color: var(--color-text-primary); /* Texto escuro no tema claro */
+  border-color: var(--color-accent-primary);
+}
+
+body.light-theme .primaryButton:hover {
+  background-color: #9bd228;
+  border-color: #9bd228;
+}
+
+body.light-theme .secondaryButton {
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+body.light-theme .secondaryButton:hover {
+    background-color: rgba(0,0,0,0.1); /* Um pouco mais escuro */
+}
+
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .modal {
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  .question {
+    font-size: 1.5rem;
+  }
+  .primaryButton,
+  .secondaryButton {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,474 @@
+/* components/OddsTable/OddsCard.module.css */
+
+.card {
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 10px var(--color-shadow-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--color-shadow-hover);
+  border-color: rgba(182, 238, 34, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.eventInfo {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.eventTeam {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.vsText {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0 6px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: linear-gradient(90deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 50%, var(--color-accent-primary) 100%);
+  background-size: 200% auto;
+  color:black;
+  animation: gradientShift 4s linear infinite;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.2s ease;
+}
+
+.time .icon {
+  width: 17px;
+  height: 17px;
+  margin-right: 6px;
+  fill: black;
+}
+
+.time.expired {
+  background: var(--color-expired-bg);
+  color: black;
+  animation: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shareButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  position: relative; /* Adicionado para posicionar o feedback de cópia */
+}
+
+.shareButton:hover {
+  background-color: rgba(182, 238, 34, 0.1);
+}
+
+.shareButton .icon {
+  fill: var(--color-text-secondary);
+  width: 18px;
+  height: 18px;
+}
+
+/* NOVO ESTILO: Feedback de cópia */
+.copyFeedback {
+  position: absolute;
+  top: -25px; /* Ajuste a posição vertical conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeInOut 2s forwards; /* Animação para aparecer e desaparecer */
+  pointer-events: none; /* Garante que não interfira com cliques no botão */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(0px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(-5px); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(-5px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+.matchInfo {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.detailsList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.detailsList li {
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.4;
+}
+
+.detailsList li::before {
+  content: '•';
+  color: var(--color-accent-primary);
+  font-size: 1.1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1;
+}
+
+.oddsContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+.oldOddValue {
+  background-color: var(--color-input-background-subtle);
+  color: var(--color-old-odd-text);
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 5px 9px;
+  border-radius: 4px;
+  text-decoration: line-through;
+  text-decoration-color: var(--color-old-odd-line);
+}
+
+.bestOddValue {
+  background-color: var(--color-accent-primary);
+  color: black;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  min-width: 70px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(182, 238, 34, 0.5);
+}
+
+.bestOddValue:hover {
+  transform: scale(1.02);
+  background-color: #9cd41e;
+  box-shadow: 0 0 15px rgba(182, 238, 34, 0.7);
+}
+
+.bestOddSpark {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.8rem;
+  line-height: 1;
+  animation: sparkFadeIn 0.5s ease-out;
+  color: var(--color-background-primary);
+}
+
+@keyframes sparkFadeIn {
+  from { opacity: 0; transform: scale(0.5) rotate(-30deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.qualityContainer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 30%;
+  margin-left: 0;
+}
+
+.qualityText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+  letter-spacing: 0;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.qualityBar {
+  background: var(--color-quality-bar-bg);
+  height: 8px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.qualityFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-accent-secondary), var(--color-accent-primary));
+  border-radius: 3px;
+  transition: width 0.5s ease-out;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.bookmakerLink {
+  display: flex;
+  align-items: center;
+  height: 40px; 
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+.bookmakerLogo {
+  height: 38px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: none;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.bookmakerLogo:hover {
+  opacity: 0.8;
+}
+
+.actionButton {
+  background-color: var(--color-accent-primary);
+  color: black;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 7px rgba(182, 238, 34, 0.3);
+}
+
+.actionButton:hover {
+  background-color: #9cd41e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(182, 238, 34, 0.5);
+}
+
+/* --- ESTILOS PARA O TEMA CLARO DENTRO DOS CARDS --- */
+body.light-theme .card {
+  background-color: var(--color-background-secondary);
+  border-color: var(--color-border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .card:hover {
+  border-color: rgba(175, 225, 40, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .eventTeam,
+body.light-theme .detailsList li {
+  color: #1f2120;
+}
+
+body.light-theme .vsText,
+body.light-theme .shareButton .icon,
+body.light-theme .matchInfo,
+body.light-theme .qualityText {
+  color: rgba(0, 0, 0, 0.7);
+  fill: rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .time {
+  background: linear-gradient(90deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 50%, var(--color-accent-primary) 100%);
+  color: #1f2120 !important; /* MUDANÇA: Cor forçada com !important */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .time.expired {
+  background: var(--color-expired-bg);
+  color: #ffffff !important; /* MUDANÇA: Expirado continua branco para contraste */
+}
+
+body.light-theme .time .icon {
+  fill: #1f2120 !important; /* MUDANÇA: Cor do ícone forçada com !important */
+}
+
+body.light-theme .detailsList li::before {
+  color: var(--color-accent-primary);
+}
+
+body.light-theme .oldOddValue {
+  background-color: var(--color-input-background-subtle);
+  color: var(--color-old-odd-text);
+  text-decoration-color: var(--color-old-odd-line);
+}
+
+body.light-theme .bestOddValue {
+  background-color: var(--color-accent-primary);
+  color: #1f2120 !important; /* MUDANÇA: Cor forçada com !important */
+  box-shadow: 0 0 10px rgba(175, 225, 40, 0.5);
+}
+
+body.light-theme .bestOddValue:hover {
+  background-color: #9bd228;
+  box-shadow: 0 0 15px rgba(175, 225, 40, 0.7);
+}
+
+body.light-theme .bestOddSpark {
+  color: #1f2120 !important; /* MUDANÇA: Cor forçada com !important */
+}
+
+body.light-theme .qualityBar {
+  background: var(--color-quality-bar-bg);
+  border-color: var(--color-border);
+}
+
+body.light-theme .qualityFill {
+  background: linear-gradient(to right, var(--color-accent-secondary), var(--color-accent-primary));
+}
+
+body.light-theme .actionButton {
+  background-color: var(--color-accent-primary);
+  color: #1f2120 !important; /* MUDANÇA: Cor forçada com !important */
+  box-shadow: 0 2px 7px rgba(175, 225, 40, 0.3);
+}
+
+body.light-theme .actionButton:hover {
+  background-color: #9bd228;
+  box-shadow: 0 4-5px 10px rgba(175, 225, 40, 0.5);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  .card {
+    padding: 12px;
+    gap: 8px;
+  }
+  .eventTeam {
+    font-size: 1.1rem;
+  }
+  .vsText {
+    font-size: 0.7rem;
+  }
+  .time, .matchInfo, .detailsList li, .oldOddValue, .actionButton {
+    font-size: 0.85rem;
+  }
+  .qualityText {
+    font-size: 0.9rem;
+  }
+  .time .icon, .shareButton .icon {
+    width: 15px;
+    height: 15px;
+  }
+  .bestOddValue {
+    padding: 7px 12px;
+    font-size: 1.3rem;
+    min-width: 60px;
+  }
+  .bestOddSpark {
+    font-size: 0.7rem;
+  }
+  .bookmakerLink {
+    height: 35px;
+  }
+  .bookmakerLogo {
+    height: 30px;
+    max-width: 110px;
+  }
+  .qualityContainer {
+    width: 40%;
+  }
+  .copyFeedback { /* Ajuste do feedback para telas menores */
+    font-size: 0.65rem;
+    top: -20px;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 10px;
+    gap: 8px;
+  }
+  .eventTeam {
+    font-size: 1rem;
+  }
+  .vsText {
+    font-size: 0.75rem;
+  }
+  .time, .matchInfo, .detailsList li, .oldOddValue, .actionButton {
+    font-size: 0.8rem;
+  }
+  .qualityText {
+    font-size: 0.85rem;
+  }
+  .bestOddValue {
+    padding: 6px 10px;
+    font-size: 1.1rem;
+    min-width: 50px;
+  }
+  .bestOddSpark {
+    font-size: 0.6rem;
+  }
+  .qualityContainer {
+    width: 50%;
+  }
+  .copyFeedback { /* Ajuste do feedback para telas menores */
+    font-size: 0.6rem;
+    top: -18px;
+    padding: 2px 5px;
+  }
+}

@@ -1,0 +1,50 @@
+/* components/OddsTable/OddsTable.module.css */
+
+.oddsTableSection {
+  width: 100%; /* Ocupa 100% da largura da viewport */
+  margin: 40px 0; /* Margem vertical, mas sem auto para centralizar */
+  padding: 0 20px; /* Padding nas laterais para não colar nas bordas */
+}
+
+.cardsGrid {
+  /* Força 3 colunas iguais que se estenderão pela largura disponível */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Espaçamento entre os cards */
+  justify-items: stretch; /* Garante que os itens preencham a largura da coluna */
+  margin-bottom: 40px;
+
+  /* Adiciona um max-width interno para o grid se a tela for muito grande,
+     mas ainda permitindo que ele se estenda além do 1200px que o header usa,
+     para dar mais sensação de que os cards são o foco principal da largura.
+     Ajuste este valor (ex: 1400px, 1600px) conforme o quão "wide" você quer que os cards fiquem. */
+  max-width: 1400px; /* Exemplo: permite que a grid seja maior que o header */
+  margin-left: auto; /* Centraliza a grid dentro da section */
+  margin-right: auto;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 1200px) { /* Em telas médias (ex: tablets na horizontal), 2 colunas */
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) { /* Em tablets na vertical e celulares grandes, 1 coluna */
+  .oddsTableSection {
+    margin: 30px 0; /* Remove margens laterais */
+    padding: 0 15px; /* Ajusta padding para mobile */
+  }
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) { /* Celulares menores */
+  .oddsTableSection {
+    margin: 20px 0;
+    padding: 0 10px;
+  }
+}
